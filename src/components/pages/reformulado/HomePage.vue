@@ -3,6 +3,7 @@
     <div class="containerHomeContent">
       <div class="subtitleContainer">
         <h1>Fui nomeado em algum concurso?</h1>
+
         <div class="h3Container">
           <h3>
             Deixe seu nome e e-mail conosco e pesquisaremos todos os dias o
@@ -11,21 +12,8 @@
           </h3>
         </div>
       </div>
-      <img class="homeImg" src="../../../assets/contratacao.jpg" alt="" />
+      <email-form> </email-form>
     </div>
-    <hr class="homeHr" />
-    <div class="subtitleContainer">
-      <h1>Saiba como ser avisado</h1>
-      <div class="h3Container">
-        <h3>
-          Você pode aderir ao nosso plano gratuito e ser avisado por email, para
-          isso basta se registrar no formulário abaixo. Ou conhecer os nossos
-          <router-link to="/planosReformulado">planos</router-link> para saber
-          mais
-        </h3>
-      </div>
-    </div>
-    <email-form></email-form>
   </div>
 </template>
 
@@ -61,7 +49,7 @@ export default {
   width: 90%;
   padding-left: 30px;
   padding-right: 30px;
-  margin-bottom: 35px;
+  margin-top: 35px;
 }
 
 .subtitleContainer {
@@ -69,11 +57,14 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .h3Container {
-  width: 400px;
+  width: 100%;
+}
+.bottomH3Container {
+  width: 500px;
 }
 
 .homeImg {
@@ -90,12 +81,22 @@ export default {
 
 h1 {
   color: #0f0f0f;
+  font-size: 40px;
 }
 
 h3 {
-  text-align: center;
+  text-align: default;
   color: #181818;
   font-weight: 300;
   margin-top: 0;
+  font-size: 30px;
+}
+
+.bottomH3 {
+  text-align: left;
+  color: #181818;
+  font-weight: 300;
+  margin-top: 0;
+  font-size: 25px;
 }
 </style>

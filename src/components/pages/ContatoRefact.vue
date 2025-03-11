@@ -4,38 +4,51 @@
       <div class="h1Container">
         <h1>Contate-nos</h1>
       </div>
-      <div class="pContainer">
-        <p class="headP">
-          Caso precise relatar algum problema ou tirar uma dúvida é só entrar em
-          contato com a gente pelo formulário abaixo
-        </p>
-      </div>
     </div>
-    <div class="containerForm">
-      <h3 class="subtitle">
-        Informe os seus dados e a mensagem para retornarmos seu contato
-      </h3>
-      <hr />
-      <div class="formCard">
-        <form>
-          <h4>Contato</h4>
-          <div class="form-control">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" />
+    <div class="register-container">
+      <div class="form-column">
+        <h2 class="form-title">Fale conosco</h2>
+        <form @submit.prevent="handleSubmit" class="register-form">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input
+              type="text"
+              id="name"
+              v-model="name"
+              required
+              class="form-input"
+            />
           </div>
-          <div class="form-control">
-            <label for="sobrenome">Email</label>
-            <input type="text" id="email" />
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              v-model="email"
+              required
+              class="form-input"
+            />
           </div>
-          <div class="form-control">
-            <label for="sobrenome">Mensagem</label>
-            <textarea id="mensagem" />
+          <div class="form-group">
+            <label for="password">Mensagem</label>
+            <textarea
+              type="password"
+              id="password"
+              v-model="password"
+              cols="14"
+              rows="5"
+              required
+              class="form-input"
+            />
           </div>
-
-          <div class="btnContainer">
-            <button class="formButton">Registrar</button>
-          </div>
+          <button type="submit" class="submit-button">Enviar</button>
         </form>
+      </div>
+      <div class="side-text-column">
+        <p class="side-description">
+          Caso precise relatar algum problema ou tirar uma dúvida é só entrar em
+          contato com a gente pelo formulário ao lado
+        </p>
       </div>
     </div>
   </div>
@@ -53,29 +66,6 @@ export default {};
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.containerForm {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  border-radius: 12px;
-  background-color: #e2e2e2;
-  width: 75%;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-bottom: 35px;
-}
-
-.formCard {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: #0f0f0f;
-  padding: 1rem;
-  margin: 32px 20px 32px 0px;
-  max-width: 40rem;
-  display: flex;
-  flex-direction: column;
 }
 
 .headText {
@@ -108,93 +98,92 @@ export default {};
   font-family: sans-serif;
 }
 
-form {
-  width: 350px;
-}
-
-.form-control {
-  margin: 0.5rem 0;
-}
-
-.subtitle {
-  color: #0f0f0f;
-  text-align: center;
-}
-
-h4 {
-  text-align: center;
-  color: #f1f1f1;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #f1f1f1;
-}
-
-select {
-  margin-bottom: 0.5rem;
-}
-
-input {
-  display: block;
-  width: 95%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 6px;
-}
-
-textarea {
-  display: block;
-  width: 95%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 25px 6px 25px 6px;
-}
-
-input:focus,
-textarea:focus {
-  background-color: #f0e6fd;
-  outline: none;
-  border-color: #3d008d;
-}
-
-h3 {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #f1f1f1;
-}
-
-hr {
-  height: 240px;
-  margin: 0px 120px 0px 50px;
-}
-
-.btnContainer {
-  width: 100%;
+.register-container {
   display: flex;
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-column {
+  flex: 1;
+  padding: 2rem;
+}
+
+.side-text-column {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.formButton {
-  background-color: #76dd4d;
-  color: #0f0f0f;
-  font-weight: 600;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-radius: 30px;
-  height: 32px;
-  margin-top: 12px;
-  margin-bottom: 6px;
-  padding-top: 0;
-  padding-bottom: 0;
-  border: none;
-  cursor: pointer;
+.form-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
-.formButton:hover {
-  background-color: #76dd4d69;
-  color: #f1f1f1;
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-input {
+  width: 93%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.submit-button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.side-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.side-description {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+  }
+
+  .side-text-column {
+    order: -1;
+  }
 }
 </style>

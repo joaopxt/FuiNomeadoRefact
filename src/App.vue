@@ -1,15 +1,20 @@
 <template>
-  <the-header></the-header>
-  <router-view></router-view>
+  <div id="app">
+    <the-header></the-header>
+    <router-view></router-view>
+    <the-footer></the-footer>
+  </div>
 </template>
 
 <script>
+import TheFooter from "./components/layout/TheFooter.vue";
 import TheHeader from "./components/layout/TheHeader.vue";
 
 export default {
   name: "App",
   components: {
     TheHeader,
+    TheFooter,
   },
 };
 </script>
@@ -17,7 +22,6 @@ export default {
 <style scoped>
 #app {
   background-color: #fff;
-  width: 100%;
-  height: 100%;
+  max-height: 100vh;
 }
 </style>
